@@ -1,9 +1,35 @@
-<section>
-    <h1><img id="logo" src="../../assets/images/logo.png" alt="Jam of the Day" /></h1>
-    <h2>Steve is today's jammer!</h2>
-    <form class="jam-entry">
-        <mat-form-field class="full-width">
-            <input matInput placeholder="Enter a Youtube ID" value="">
-        </mat-form-field>
-    </form>
+<nav class="menu"></nav>
+
+<section *ngIf="jammer">
+    <h1><img id="logo" src="../../assets/images/logo.png" alt="Jam of the Day"/></h1>
+    <h2>{{jammer.name}} is today's jammer</h2>
+    <div *ngIf="!jam">
+        <form class="jam-entry">
+            <mat-form-field class="full-width">
+                <input #youtube matInput placeholder="Enter a Youtube ID" value="">
+            </mat-form-field>
+            <br>
+            <div>
+                <button (click)="getJamByYoutubeId(youtube.value)" class="btn-arcade btn-start" type="button">Start
+                </button>
+                <button (click)="getNewJammer()" class="btn-arcade btn-reset" type="button">Reset</button>
+            </div>
+        </form>
+    </div>
+    <div *ngIf="jam">
+        <iframe
+                width="640"
+                height="360"
+                [src]="jam.embed | safe"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+        </iframe>
+        <ul>
+            <li title="{{jam.artist}}">Artist: {{jam.artist}}</li>
+            <li title="{{jam.song}}">Song: {{jam.song}}</li>
+            <li><a href="{{jam.link}}" target="_blank">Watch it on Youtube</a></li>
+        </ul>
+    </div>
+    <div *ngIf="error" class="error">{{error}}</div>
 </section>

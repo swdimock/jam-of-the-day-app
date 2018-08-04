@@ -6,8 +6,10 @@ import {HomeComponent} from './pages/home.component';
 import {BrowseComponent} from './pages/browse.component';
 import {UsersComponent} from './pages/users.component';
 import {AppRoutingModule} from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
+import {SafePipe} from './pipes/safe';
 
-import {MatInputModule} from '@angular/material';
+import {MatButtonModule, MatInputModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -15,13 +17,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         AppComponent,
         HomeComponent,
         BrowseComponent,
-        UsersComponent
+        UsersComponent,
+        SafePipe
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
+        MatButtonModule,
         MatInputModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -1,2 +1,79 @@
 #logo
   max-width: 650px
+
+h2 + div
+  margin-top: 2em
+
+ul
+  margin-top: 2em
+
+  li
+    margin-bottom: 1em
+
+.jam-entry
+  margin-top: 2em
+
+  .mat-form-field
+    width: 50%
+    text-align: center
+
+  .mat-raised-button.mat-primary
+    animation: rainbow 1s infinite linear
+
+.mat-form-field-appearance-legacy
+
+  .mat-form-field-underline
+    background-color: rgba(255, 255, 255, 0.75)
+
+.btn-arcade
+  background: none
+  border: none
+  color: white
+  outline: none
+  text-indent: -9999px
+  cursor: pointer
+
+  display: inline-block
+  height: 60px
+  width: 230px
+  margin: 0 10px
+  background-size: contain
+  background-position: center
+  background-repeat: no-repeat
+
+  &.btn-start
+    background-image: url(../../assets/images/btn_start.png)
+
+  &.btn-reset
+    background-image: url(../../assets/images/btn_reset.png)
+
+  &:hover
+    animation: pulse 1s ease-in-out infinite
+
+  &:active
+    animation: none
+    transform: scale(0.9)
+
+//@keyframes rainbow
+//  0%
+//    background-color: red
+//  16.667%
+//    background-color: orange
+//  33.333%
+//    background-color: yellow
+//  49.998%
+//    background-color: green
+//  66.664%
+//    background-color: blue
+//  83.33%
+//    background-color: indigo
+//  100%
+//    background-color: violet
+
+@keyframes pulse
+  0%
+    transform: scale(1)
+  50%
+    transform: scale(0.9)
+  100%
+    transform: scale(1)

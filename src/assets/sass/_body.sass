@@ -1,11 +1,35 @@
-@import url('https://fonts.googleapis.com/css?family=Knewave')
+@import url('https://fonts.googleapis.com/css?family=Cabin')
+
+@font-face
+  font-family: '8bit_wonder'
+  src: url('../fonts/8-bit_wonder-webfont.woff2') format('woff2'), url('../fonts/8-bit_wonder-webfont.woff') format('woff')
+  font-weight: normal
+  font-style: normal
 
 body
-  background: url('../images/background.jpg') center no-repeat
-  background-size: cover
-
   color: white
-  font-family: 'Knewave', cursive
+  font-family: '8bit_wonder', sans-serif
+
+  &:after
+    $height: 125vh
+    $width: 110vw
+    content: ''
+    display: block
+    height: $height
+    width: $width
+
+    position: fixed
+    top: 50%
+    margin-top: calc((#{$height} / 2) * -1)
+    left: 50%
+    margin-left: calc((#{$width} / 2) * -1)
+    z-index: -1
+
+    background: url('../images/background.jpg') center no-repeat
+    background-size: cover
+    transition: transform ease 250ms
+    transform-origin: 50% 50% 0
+    animation: swish infinite 3s ease-in-out
 
   header
 
@@ -21,3 +45,15 @@ body
       article
 
   footer
+
+@keyframes swish
+  0%
+    transform: rotate(0deg) scale(1)
+  25%
+    transform: rotate(5deg) scale(1.05)
+  50%
+    transform: rotate(0deg) scale(1)
+  75%
+    transform: rotate(-5deg) scale(1.05)
+  100%
+    transform: rotate(0deg) scale(1)
