@@ -8,7 +8,7 @@ import {ApiService} from '../services/api.service';
 })
 export class BrowseComponent implements OnInit {
 
-    public jammers: any = [];
+    public jams: any = [];
 
     constructor(
         private _api: ApiService
@@ -16,14 +16,14 @@ export class BrowseComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getAllJammers();
+        this.getAllJams();
     }
 
-    getAllJammers() {
-        this._api.getAllJammers()
+    getAllJams() {
+        this._api.getAllJams()
             .subscribe(
                 result => {
-                    this.jammers = result;
+                    this.jams = result;
                 });
     }
 

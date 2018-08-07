@@ -1,3 +1,8 @@
-<p>
-  users works!
-</p>
+<section>
+
+  <ul>
+    <li *ngFor="let jammer of jammers"><a (click)="openUserDialog()">{{jammer.name}}</a></li>
+    <li class="new">+ Create a new jammer</li>
+  </ul>
+
+</section>

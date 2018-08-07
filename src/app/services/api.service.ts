@@ -52,6 +52,10 @@ export class ApiService {
 
     }
 
+    getAllJams() {
+        return this._http.get(this._httpUrl + '/jam');
+    }
+
     getWildCardJam() {
         return this._http.get(this._httpUrl + '/wildJam');
     }
