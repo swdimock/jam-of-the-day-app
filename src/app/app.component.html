@@ -1,3 +1,12 @@
+<nav *ngIf="menu">
+    <ul>
+        <li (click)="toggleMenu()" routerLink="/home">Phone Home</li>
+        <li (click)="toggleMenu()" routerLink="/browse">Browse Jams</li>
+        <li (click)="toggleMenu()" routerLink="/users">Manage Users</li>
+    </ul>
+</nav>
+
 <main>
+    <span (click)="toggleMenu()" class="menu"></span>
     <router-outlet></router-outlet>
 </main>

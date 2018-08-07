@@ -1,5 +1,3 @@
-<nav class="menu"></nav>
-
 <section *ngIf="jammer">
     <h1><img id="logo" src="../../assets/images/logo.png" alt="Jam of the Day"/></h1>
     <h2>{{jammer.name}} is today's jammer</h2>
@@ -30,6 +28,7 @@
             <li title="{{jam.song}}">Song: {{jam.song}}</li>
             <li><a href="{{jam.link}}" target="_blank">Watch it on Youtube</a></li>
         </ul>
+        <button (click)="getWildCardJam()" class="btn-arcade btn-wildcard" type="button">I'm feeling lucky</button>
     </div>
     <div *ngIf="error" class="error">{{error}}</div>
 </section>

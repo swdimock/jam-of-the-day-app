@@ -49,11 +49,25 @@ export class HomeComponent implements OnInit {
 
     getTodaysJam(): void {
         this._api.getHistoricJam()
-            .subscribe(result => {
-                if (result[length]) {
+            .subscribe(
+                result => {
+                    if (result[length]) {
+                        this.jam = result[0];
+                    }
+                });
+    }
+
+    getWildCardJam(): void {
+        this._api.getWildCardJam()
+            .subscribe(
+                result => {
+                    // Handle legacy urls which don't provide the embed URL
+                    if (result[0].embed === '') {
+                        result[0].embed = this._extractEmbedUrl(result[0].link);
+                    }
                     this.jam = result[0];
                 }
-            });
+            );
     }
 
     getJamByYoutubeId($youtube) {
@@ -82,6 +96,12 @@ export class HomeComponent implements OnInit {
             .subscribe(d => {
                 this.jammer = d;
             });
+    }
+
+    private _extractEmbedUrl($link) {
+        const url = $link.split('=');
+        console.log(url[1]);
+        return 'https://www.youtube.com/embed/' + url[1] + '?rel=0&amp;controls=0&amp;showinfo=0';
     }
 
 }

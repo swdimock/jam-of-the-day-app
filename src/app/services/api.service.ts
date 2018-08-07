@@ -18,6 +18,10 @@ export class ApiService {
         return this._http.get(this._httpUrl + '/todaysjammer');
     }
 
+    getAllJammers($include_jams = false) {
+        return this._http.get(this._httpUrl + '/jammer/');
+    }
+
     getJammerById($id: number) {
         return this._http.get(this._httpUrl + '/jammer/' + $id);
     }
@@ -46,6 +50,10 @@ export class ApiService {
 
     deleteJammerById($id: number) {
 
+    }
+
+    getWildCardJam() {
+        return this._http.get(this._httpUrl + '/wildJam');
     }
 
     getHistoricJam(date = null) {

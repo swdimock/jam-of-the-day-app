@@ -18,6 +18,34 @@ a
   text-decoration: none
 
 nav
+  background-color: rgba(112, 24, 125, 0.9)
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 2
+
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 100vh
+  width: 100vw
+
+  ul
+    text-align: center
+
+    li
+      font-size: 2em
+      margin-bottom: 2em
+      cursor: pointer
+      outline: none
+
+      &:hover
+        animation: pulse 1s ease-in-out infinite
+
+      &:last-of-type
+        margin-bottom: 0
+
+.menu
   background: transparent url(../../assets/images/cassette.png) no-repeat center
   background-size: contain
   display: block
@@ -28,6 +56,7 @@ nav
   position: fixed
   top: 0
   right: 0
+  z-index: 3
 
   opacity: 0.65
   cursor: pointer
