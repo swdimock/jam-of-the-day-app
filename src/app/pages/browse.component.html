@@ -1,12 +1,13 @@
 <section>
 
-    <article>High Score: Someone - 26</article>
-
-    <article>Today's jam from last year:</article>
+    <h1>High Score<br><small>{{highscore.name}} - {{highscore.score}}</small></h1>
 
     <ul>
-        <li *ngFor="let jammer of jammers">
-            {{jammer.name}}
+        <li *ngFor="let jam of jams">
+            <span>{{jam.timestamp}}</span>
+            <a href="{{jam.link}}" title="Check out {{jam.artist}} - {{jam.song}}" target="_blank">
+                {{jam.artist}} - {{jam.song}}
+            </a>
         </li>
     </ul>
 

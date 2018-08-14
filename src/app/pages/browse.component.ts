@@ -8,7 +8,8 @@ import {ApiService} from '../services/api.service';
 })
 export class BrowseComponent implements OnInit {
 
-    public jammers: any = [];
+    public jams: any = [];
+    public highscore: any;
 
     constructor(
         private _api: ApiService
@@ -16,14 +17,23 @@ export class BrowseComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getAllJammers();
+        this.getAllJams();
+        this.getHighscore();
     }
 
-    getAllJammers() {
-        this._api.getAllJammers()
+    getAllJams() {
+        this._api.getJams()
             .subscribe(
                 result => {
-                    this.jammers = result;
+                    this.jams = result;
+                });
+    }
+
+    getHighscore() {
+        this._api.getHighScoreJammer()
+            .subscribe(
+                result => {
+                    this.highscore = result[0];
                 });
     }
 

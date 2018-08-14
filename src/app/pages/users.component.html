@@ -1,3 +1,21 @@
-<p>
-  users works!
-</p>
+<section>
+
+    <ul>
+        <li (click)="toggleJammerStatus(jammer)"
+            [class.inactive]="!jammer.status"
+            *ngFor="let jammer of jammers">
+            {{jammer.name}}
+            <span (click)="deleteJammer(jammer.id)" class="delete hide">X</span>
+        </li>
+        <li class="add-new-jammer">
+            <mat-form-field class="full-width">
+                <input
+                        (keyup.enter)="addNewJammer(addJammer.value); addJammer.value=''"
+                        matInput
+                        placeholder="Add a New Jammer"
+                        #addJammer />
+            </mat-form-field>
+        </li>
+    </ul>
+
+</section>

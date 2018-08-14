@@ -18,8 +18,14 @@ export class ApiService {
         return this._http.get(this._httpUrl + '/todaysjammer');
     }
 
-    getAllJammers($include_jams = false) {
-        return this._http.get(this._httpUrl + '/jammer/');
+    getAllJammers($include_jams = false, $show_inactive = false) {
+
+        let url = this._httpUrl + '/jammer';
+
+        if ($show_inactive) {
+            url = this._httpUrl + '/jammers';
+        }
+        return this._http.get(url);
     }
 
     getJammerById($id: number) {
@@ -41,15 +47,19 @@ export class ApiService {
     }
 
     putNewJammer($name: string) {
-        // return this.http.post(this._httpUrl + '/jammer/');
+        return this._http.put(this._httpUrl + '/jammer/' + $name, null);
     }
 
-    updateJammerStatus($status: number) {
-
+    updateJammerStatus($user_id: number, $status: number) {
+        return this._http.post(this._httpUrl + '/jammer/' + $user_id + '/' + $status, null);
     }
 
-    deleteJammerById($id: number) {
+    deleteJammerById($user_id: number) {
+        return this._http.delete(this._httpUrl + '/jammer/' + $user_id);
+    }
 
+    getJams() {
+        return this._http.get(this._httpUrl + '/jam');
     }
 
     getWildCardJam() {
@@ -61,6 +71,10 @@ export class ApiService {
             date = this._formatDate(this._date);
         }
         return this._http.get(this._httpUrl + '/historicJam/' + date);
+    }
+
+    getHighScoreJammer() {
+        return this._http.get(this._httpUrl + '/highscore');
     }
 
     putNewJam($id: number, $youtube: string) {
