@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ApiService {
 
-    private _httpUrl = 'http://localhost:8000';
+    private _httpUrl = 'http://webgrainjamoftheday-env.xpf5qfpdvy.us-east-1.elasticbeanstalk.com';
     private _date: Date = new Date();
 
     constructor(

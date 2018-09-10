@@ -1,5 +1,5 @@
 <section>
-    <h1>High Score<br><small>{{highscore.name}} - {{highscore.score}}</small></h1>
+    <h1 *ngIf="highscore">High Score<br><small>{{highscore.name}} - {{highscore.score}}</small></h1>
 
     <ul>
         <li *ngFor="let jam of jams">

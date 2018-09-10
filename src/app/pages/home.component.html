@@ -16,6 +16,7 @@
     </div>
     <div *ngIf="jam">
         <iframe
+                *ngIf="jam.embed"
                 width="640"
                 height="360"
                 [src]="jam.embed | safe"
